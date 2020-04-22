@@ -2,7 +2,7 @@
 #q2:types	categorical	numeric	categorical	categorical	categorical	categorical	categorical	categorical	categorical	categorical
 P119G	NNNNNNNN	6	F	V	Bambi	F1_6	SAMN14652860	human gut metagenome	408170	P119G
 P119L	NNNNNNNN	12	F	V	Bambi	F1_12	SAMN14652861	human gut metagenome	408170	P119L
-P119P	NNNNNNNN	18	F	V	Bambi	F1_12	SAMN14652862	human gut metagenome	408170	P119P
+P119P	NNNNNNNN	18	F	V	Bambi	F1_18	SAMN14652862	human gut metagenome	408170	P119P
 P135ZA	NNNNNNNN	18	M	V	Bambi	M2_18	SAMN14652863	human gut metagenome	408170	P135ZA
 P135ZG	NNNNNNNN	6	M	C	Bambi	M3_6	SAMN14652864	human gut metagenome	408170	P135ZG
 P135ZJ	NNNNNNNN	12	M	C	Bambi	M3_12	SAMN14652865	human gut metagenome	408170	P135ZJ
