@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# This scripts process raw illumina miseq reads 
+# - quality filter (fastp)
+# - ASV picking (USEARCH)
+# - Taxonomy annotation (USEARCH)
 set -euo pipefail
 
 SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
@@ -13,14 +18,22 @@ mkdir -p "reads"
 
 echo "USAGE: $0 InputDir"
 
+# Check required parameter (input_dir)
 if [ -z ${1+x} ]; then
 	echo "ERROR: Input directory required"
 else
 	INPUT_DIR=$1
 fi 
 
+# Check input and required files are present 
+
 if [ ! -d "$INPUT_DIR" ]; then
 	echo "ERROR: Input directory not found: $INPUT_DIR"
+	exit 1
+fi
+
+if [ ! -e "$DIR/ref/utax8_04.02.2020.fa" ]; then
+	echo "ERROR: Reference not found: $DIR/ref/utax8_04.02.2020.fa"
 	exit 1
 fi
 
@@ -65,6 +78,7 @@ do
 	  -otutabout $OUT/otutab_$OTU_TAG.txt \
       -threads $THREADS
  
+ 	# For loop to allow annotation with  multiple reference (basename will be the tag)
  	for REF_DB in $DIR/ref/utax8_04.02.2020.fa;
  	do
  		REF_TAG=$(basename $REF_DB | cut -f1 -d _  | cut -f1 -d.)
