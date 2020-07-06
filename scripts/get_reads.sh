@@ -1,0 +1,32 @@
+#!/bin/bash
+
+fastq-dump SAMN14652860 
+fastq-dump SAMN14652861 
+fastq-dump SAMN14652862 
+fastq-dump SAMN14652863 
+fastq-dump SAMN14652864 
+fastq-dump SAMN14652865 
+fastq-dump SAMN14652866 
+fastq-dump SAMN14652867 
+fastq-dump SAMN14652868 
+fastq-dump SAMN14652869 
+fastq-dump SAMN14652870 
+fastq-dump SAMN14652871 
+fastq-dump SAMN14652872 
+fastq-dump SAMN14652873 
+fastq-dump SAMN14652874 
+fastq-dump SAMN14652875 
+fastq-dump SAMN14652876 
+fastq-dump SAMN14652877 
+fastq-dump SAMN14652878 
+fastq-dump SAMN14652879 
+fastq-dump SAMN14652880 
+fastq-dump SAMN14652881 
+fastq-dump SAMN14652882 
+fastq-dump SAMN14652883 
+fastq-dump SAMN14652884 
+fastq-dump SAMN14652885 
+fastq-dump SAMN14652886 
+fastq-dump SAMN14652887 
+fastq-dump SAMN14652888 
+fastq-dump SAMN14652889 
