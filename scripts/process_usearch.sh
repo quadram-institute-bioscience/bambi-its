@@ -1,15 +1,30 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
+
 SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 DIR="$SCRIPTS/../"
 OUT="$DIR/usearch"
 THREADS=4
 
-usearch || { echo "'usearch' is requried in your \$PATH"; exit 1; }
-fastp   || { echo "'fastp' is requried in your \$PATH"; exit 1; }
+usearch >/dev/null 2>&1|| { echo "'usearch' is requried in your \$PATH"; exit 1; }
+fastp >/dev/null 2>&1   || { echo "'fastp' is requried in your \$PATH"; exit 1; }
 mkdir -p "$OUT"
 mkdir -p "reads"
-for i in reads_raw/*R1*gz;
+
+echo "USAGE: $0 InputDir"
+
+if [ -z ${1+x} ]; then
+	echo "ERROR: Input directory required"
+else
+	INPUT_DIR=$1
+fi 
+
+if [ ! -d "$INPUT_DIR" ]; then
+	echo "ERROR: Input directory not found: $INPUT_DIR"
+	exit 1
+fi
+
+for i in $INPUT_DIR/*R1*gz;
 do
 	fastp -i "$i" -I "${i/_R1/_R2}" -o reads/$(basename ${i%.gz}) -O reads/$(basename ${i/_R1/_R2} | sed 's/.gz//') \
 	  --trim_front1 22 --trim_front2 20 \
