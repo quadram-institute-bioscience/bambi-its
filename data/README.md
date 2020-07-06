@@ -16,3 +16,8 @@
 
 * **feature-table.tsv** - OTU Table in TSV format (equal to *table_uncrossed.tsv*)
 
+* **phyloseq_objects** - Directory containing phyloseq objects and combined PDF of plots created with the phyloseq R scripts (01 - 07)
+
+	* *my_physeq.rds* - phyloseq object containing features, taxonomy, tree and selected metadata (_Months,Sex,Delivery_)
+	* *my_physeq_fildered.rds* - phyloseq object containing rel. abundances and filtered data (removed samples with < 10 000 counts, removed taxa with < 5% rel. abundance in _all_ samples)
+	* *all_combi.pdf* - pdf containing all pdf plots created with phyloseq scripts
