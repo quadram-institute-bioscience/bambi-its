@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+# INPUT:
+# - a feature table  "OTU | sample1 | sample2 ..."
+# - a taxonomy table "OTU | Kingdom | Phylum ..."
+
+# OUTPUT
+# - a table collapsed by taxonomy (when identical) both raw and normalized
 
 import sys
 import pandas
@@ -69,4 +75,8 @@ taxonomy = pandas.read_csv(opt.taxonomy, sep=opt.separator, header=0, index_col=
 
 table['Taxonomy'] = table.index.map(lambda x : getTax(x))
 table = table.groupby("Taxonomy").sum()
-table.to_csv(output)
+
+
+table.to_csv(output,sep=opt.separator)
+table = table.div(table.sum(axis=0), axis=1)
+table.to_csv(output + ".norm",sep=opt.separator)
